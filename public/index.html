@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+header {
+    background-image: url('your-header-image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.5rem;
+    color: #bbbbbb;
+    margin-bottom: 20px;
+}
+
+nav {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #1e90ff;
+}
+
+#nav-toggle {
+    display: none;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+section {
+    padding: 50px 20px;
+    margin: 30px 0;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease-in-out;
+}
+
+section:hover {
+    background-color: #2c2c2c;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #1e90ff;
+}
+
+p,
+ul {
+    font-size: 1.1rem;
+    color: #cccccc;
+}
+
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.about-content {
+    flex: 2;
+}
+
+
+.project {
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #2c2c2c;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.project img {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.project h3 {
+    font-size: 1.8rem;
+    color: #1e90ff;
+}
+
+.project p {
+    margin-top: 10px;
+    color: #bbbbbb;
+}
+
+.project-link {
+    color: #1e90ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #ff6f61;
+}
+
+/* Skills section */
+#skills {
+    text-align: center;
+}
+
+#skills ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#skills ul li {
+    display: inline-block;
+    margin: 10px 20px;
+    padding: 10px 15px;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Academic Qualifications */
+#qualifications {
+    text-align: center;
+}
+
+#qualifications ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#qualifications ul li {
+    background-color: #333;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+#qualifications ul li span {
+    display: block;
+    color: #bbbbbb;
+}
+
+
+#achievements {
+    text-align: center;
+}
+
+#achievements ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#achievements ul li {
+    background-color: #333;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+#achievements ul li span {
+    display: block;
+    color: #bbbbbb;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-top: 1px solid #333;
+    margin-top: 30px;
+}
+
+footer p {
+    color: #777;
+}
+
+
+@media (max-width: 600px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    #nav-toggle {
+        display: block;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    .project {
+        flex-direction: column;
+    }
+}
+</style>
+
+<body>
+    <header>
+        <h1>HARSH BHAGAT</h1>
+        <p>Student | Web Developer | Programmer</p>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#qualifications">Academic Qualifications</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="nav-toggle">☰</button>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>ABOUT ME</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQEKHb3fC_YjRA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1728111598163?e=1735171200&v=beta&t=lNJBfIZYEkaOvx9U6tk90_tbZ2d5ZfgONrUwBhcmBXI" alt="Your Photo">
+            </div>
+            <div class="about-content">
+                <p>Hello! I'm a creative and detail-oriented web developer with a strong passion for coding and design. I enjoy building web applications and solving real-world problems through technology. With experience in both front-end and back-end development, I create dynamic and responsive websites that enhance user experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>PROJECTS</h2>
+        <div class="project" data-category="web">
+            <img src="https://th.bing.com/th/id/OIP.KT-Qy1iqHmh8FQT_esn7IwHaHa?w=512&h=512&rs=1&pid=ImgDetMain" alt="Project 1 Thumbnail">
+            <div>
+                <h3>PORTFOLIO WEBSITE</h3>
+                <p>This portfolio website showcases my work, skills, and projects in a sleek, mobile-friendly design. Built using HTML, CSS, and JavaScript.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+        </div>
+        <div class="project" data-category="app">
+            <img src="https://th.bing.com/th/id/OIP.iFV03JgLvqfScVlAXmkJrgHaHa?w=512&h=512&rs=1&pid=ImgDetMain" alt="Project 2 Thumbnail">
+            <div>
+                <h3>TASK MANAGER APP</h3>
+                <p>A productivity tool to help users manage and track their tasks effectively. Developed using React and Firebase for real-time database management.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+        </div>
+        <div class="project" data-category="web">
+            <img src="https://th.bing.com/th/id/OIP.xkxmy5qZnD1ndpnopOd1awHaGM?rs=1&pid=ImgDetMain" alt="Project 3 Thumbnail">
+            <div>
+                <h3>E-COMMERCE PLATFORM</h3>
+                <p>An online shopping platform built with a fully functional cart and payment system. Created with Node.js, Express, and MongoDB for scalable backend support.</p>
+                <a href="#" class="project-link">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>SKILLS</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>C, C++, Java</li>
+            <li>MySQL</li>
+            <li>MongoDB</li>
+            <li>Version Control (Git & GitHub)</li>
+            <li>Responsive Web Design</li>
+        </ul>
+    </section>
+
+    <section id="qualifications">
+        <h2>ACADEMIC QUALIFICATIONS</h2>
+        <ul>
+            <li>
+                B.Tech in Information Technology
+                <span>CGPA: 8.5 / 10</span>
+            </li>
+            <li>
+                High School
+                <span>Percentile: 87%</span>
+            </li>
+            <li>
+                Secondary School
+                <span>Percentile: 84%</span>
+            </li>
+        </ul>
+    </section>
+
+    <section id="achievements">
+        <h2>ACHIEVEMENTS</h2>
+        <ul>
+            <li>
+                Web Development Internship at Codsoft
+                <span>Duration: 1 month | Role: Web Dev Intern</span>
+            </li>
+            <li>
+                National-level Coding Challenge Participation
+                <span>Issued by: AD Infocom Systems | Award: Participation Certificate</span>
+            </li>
+            <li>
+                Online Coding Challenge Certification
+                <span>Issued by: AD Infocom Systems | Award: Certificate of Completion</span>
+            </li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>CONTACT</h2>
+        <p>I'm always open to discuss new projects or opportunities. Feel free to reach out to me!</p>
+        
+        <p>Email: <a href="mailto:harshbhagat9970@gmail.com" style="color: #1e90ff;">harshbhagat9970@gmail.com</a></p>
+        <p>Phone: <a href="tel:+1234567890" style="color: #1e90ff;">+91 9970422026</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/harsh-bhagat-707b0231a" target="_blank" style="color: #1e90ff;">harsh-bhagat</a></p>
+        <p>GitHub: <a href="https://github.com/Harshbhagat22" target="_blank" style="color: #1e90ff;">Harshbhagat22</a></p>
+        <!-- Feedback Form -->
+        <form action="#" method="post" style="margin-top: 20px;">
+            <label for="feedback">Leave your Feedback:</label><br>
+            <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Your feedback..." style="width: 100%; padding: 10px; border-radius: 5px; margin-top: 10px; border: 1px solid #444;"></textarea><br><br>
+            <input type="submit" value="Submit Feedback" style="padding: 10px 20px; background-color: #1e90ff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Harsh Bhagat | Designed with 💻 and ☕</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.getElementById('nav-toggle');
+            const navLinks = document.getElementById('nav-links');
+
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
